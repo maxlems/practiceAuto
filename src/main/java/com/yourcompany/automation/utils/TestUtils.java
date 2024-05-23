@@ -14,7 +14,7 @@ public class TestUtils {
     public static String captureScreenShot(WebDriver driver) {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         String base64Code = takesScreenshot.getScreenshotAs(OutputType.BASE64);
-        System.out.println("Screenshot Saved");
+        //System.out.println("Screenshot Saved");
         return base64Code;
     }
 
