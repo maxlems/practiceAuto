@@ -9,14 +9,16 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class ExtentReportListener implements ITestListener {
-    private static ExtentReports extent;
+    public static ExtentReports extent;
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
     @Override
     public void onStart(ITestContext context) {
-        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("Spark.html");
+        String browser = context.getCurrentXmlTest().getParameter("browser");
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("SparkReport_" + browser + ".html");
+
         sparkReporter.config().setDocumentTitle("Automation Report");
-        sparkReporter.config().setReportName("Test Report");
+        sparkReporter.config().setReportName("Test Report - " + browser);
         sparkReporter.config().setTheme(Theme.DARK);
 
         extent = new ExtentReports();

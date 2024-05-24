@@ -3,16 +3,21 @@
     <listeners>
         <listener class-name="com.yourcompany.automation.utils.ExtentReportListener"/>
     </listeners>
-
-    <test name="LoginTests">
+    <test name="ChromeTests">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="com.yourcompany.automation.tests.LoginValidationTests" />
+        </classes>
+    </test>
+    <test name="EdgeTests">
+        <parameter name="browser" value="edge" />
         <groups>
             <run>
                 <exclude name="negative1"/>
             </run>
         </groups>
         <classes>
-            <class name="com.yourcompany.automation.tests.LoginValidationTests"/>
-<!--            <class name="com.yourcompany.automation.tests.EmptyFieldsTests"/>-->
+            <class name="com.yourcompany.automation.tests.LoginValidationTests" />
         </classes>
     </test>
 </suite>
